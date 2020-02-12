@@ -2,7 +2,7 @@
     <div>
         <h1>口罩在那</h1>
     <span><font>縣市</font></span>
-    <citySelector v-on:chooseCity="chooseCity"></citySelector>
+    <citySelector v-on:chooseCity='chooseCity'></citySelector>
    <table>
        <tr>
            <td>
@@ -24,7 +24,7 @@
                Map
            </td>
        </tr>
-        <tr v-for="(data,index) in targetLocation" v-bind:key="index">
+        <tr v-for='(data,index) in targetLocation' v-bind:key='index'>
            <td>
                {{data.properties.name}}
            </td>
@@ -41,8 +41,7 @@
                 {{data.properties.updated}}
            </td>
            <td>
-              <a  href="https://www.google.com.tw/maps/search/ ${data.properties.name}/@${data.geometry.coordinates[1]},${data.geometry.coordinates[0]},17z">Map </a>
-             
+              <a  v-bind:href="'https://www.google.com.tw/maps/search/'+data.properties.name+'/@'+data.geometry.coordinates[1]+','+data.geometry.coordinates[0]+',17z'">Map </a>
            </td>
        </tr>
    </table>
